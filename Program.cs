@@ -18,10 +18,8 @@ namespace PreWork2
             DateTime.TryParse(userInput, out result);
             
             return result;  
-                    
         }
 
-                
         static void Main(string[] args)
         {
             DateDiff date1 = new DateDiff();
@@ -30,7 +28,7 @@ namespace PreWork2
             DateTime d1 = date1.GetDate();
             DateTime d2 = date2.GetDate();
 
-            TimeSpan diff = default(TimeSpan);
+            TimeSpan diff; 
 
             if (d1.Year > d2.Year)
             {
