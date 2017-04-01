@@ -20,6 +20,7 @@ namespace PreWork2
             return result;  
         }
 
+
         static void Main(string[] args)
         {
             DateDiff date1 = new DateDiff();
@@ -28,12 +29,12 @@ namespace PreWork2
             DateTime d1 = date1.GetDate();
             DateTime d2 = date2.GetDate();
 
-            TimeSpan diff; 
+            TimeSpan diff;
 
             if (d1.Year > d2.Year)
             {
                 diff = d1.Subtract(d2);
-                
+
             }
             else if (d1.Year < d2.Year)
             {
@@ -41,11 +42,11 @@ namespace PreWork2
             }
             else
             {
-                if(d1.Month > d2.Month)
+                if (d1.Month > d2.Month)
                 {
                     diff = d1.Subtract(d2);
                 }
-                else if(d1.Month > d2.Month)
+                else if (d1.Month > d2.Month)
                 {
                     diff = d2.Subtract(d1);
                 }
@@ -62,11 +63,22 @@ namespace PreWork2
                 }
             }
 
+            int TotalDays = Convert.ToInt32(diff.TotalDays);
+
+            int y;
+            int m;
+            int d;
+
+            y = TotalDays / 365;
+            m = TotalDays % 365 / 30;
+            d = TotalDays % 365 % 30;
             
-            Console.WriteLine("The difference between the two dates is " + diff.TotalDays + " days.");
+
+            Console.WriteLine("The difference between the two dates is " + y + " years, " + m + " months, " + d + " days.");
             Console.ReadLine();
         }
     }
+}
 
     
-}
+
