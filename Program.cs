@@ -18,7 +18,7 @@ namespace PreWork2
             DateTime.TryParse(userInput, out result);
             
             return result;  
-            Console.ReadLine();         
+                    
         }
 
                 
@@ -30,10 +30,45 @@ namespace PreWork2
             DateTime d1 = date1.GetDate();
             DateTime d2 = date2.GetDate();
 
-            TimeSpan diff = d1.Subtract(d2);
+            TimeSpan diff = default(TimeSpan);
 
-            Console.WriteLine(diff.TotalDays);
+            if (d1.Year > d2.Year)
+            {
+                diff = d1.Subtract(d2);
+                
+            }
+            else if (d1.Year < d2.Year)
+            {
+                diff = d2.Subtract(d1);
+            }
+            else
+            {
+                if(d1.Month > d2.Month)
+                {
+                    diff = d1.Subtract(d2);
+                }
+                else if(d1.Month > d2.Month)
+                {
+                    diff = d2.Subtract(d1);
+                }
+                else
+                {
+                    if (d1.Day > d2.Day)
+                    {
+                        diff = d1.Subtract(d2);
+                    }
+                    else
+                    {
+                        diff = d2.Subtract(d1);
+                    }
+                }
+            }
+
+            
+            Console.WriteLine("The difference between the two dates is " + diff.TotalDays + " days.");
             Console.ReadLine();
         }
     }
+
+    
 }
